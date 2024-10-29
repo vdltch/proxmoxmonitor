@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="kalifast.ico">
+    <title>Kalifast - Proxmox Monitoring</title>
+</head>
+
+<body>
+    <header>
+        <nav class="top-menu sub-menu-content" style="display: flex; justify-content: space-between;">
+            <div>
+                <a class="hyperviseurPils eh017" href="">eh017</a>
+                <a class="hyperviseurPils oh022" href="">oh022</a>
+                <a class="hyperviseurPils eh012" href="">eh012</a>
+                <a class="hyperviseurPils eh032" href="">eh032</a>
+                <a class="hyperviseurPils oh018" href="">oh018</a>
+                <a class="hyperviseurPils kalifast" href="">kalifast</a>
+
+            </div>
+            <div id="sqlForm">
+                <input required type="file" id="sqlFileInput" style="color: #000000; margin-left: 12px;">
+                <div style="color: #ffff; float: right; cursor: pointer;" id="applyPatch">Apply Patch</div>
+            </div>
+        </nav>
+        <!-- <div class="userpanel" style="margin-right: 45px; color: #000000;">
+            <a class="loginPopUp" onclick="loginForm()">
+          -->
+</header>
+    <table id="vmTable" class="styled-table">
+        <thead>
+            <tr class="active-row">
+                <th id="vmName"></th>
+                <th id="checkbox">Check for update
+                </th>
+                <th id="vmName">VM Name</th>
+                <th id="vmID">VM ID</th>
+                <th id="">Status</th>
+                <th id="vmIp">Ip adress</th>
+                <th id="subjectNumber">Subject Number</th>
+                <th id="Execution_number">Execution Number</th>
+                <th id="KFTVersion">KFT Version</th>
+                <th id="audit">Generate Audit</th>
+                <th id="error">Error log</th>
+                <th id="error">Error Size</th>
+                <p class="refresh" onclick="forceRefresh()" style="cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20px">
+                        <path d="M105.1 202.6c7.7-21.8 20.2-42.3 37.8-59.8c62.5-62.5 163.8-62.5 226.3 0L386.3 160H352c-17.7 0-32 14.3-32 32s14.3 32 32 32H463.5c0 0 0 0 0 0h.4c17.7 0 32-14.3 32-32V80c0-17.7-14.3-32-32-32s-32 14.3-32 32v35.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5zM39 289.3c-5 1.5-9.8 4.2-13.7 8.2c-4 4-6.7 8.8-8.1 14c-.3 1.2-.6 2.5-.8 3.8c-.3 1.7-.4 3.4-.4 5.1V432c0 17.7 14.3 32 32 32s32-14.3 32-32V396.9l17.6 17.5 0 0c87.5 87.4 229.3 87.4 316.7 0c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.5 62.5-163.8 62.5-226.3 0l-.1-.1L125.6 352H160c17.7 0 32-14.3 32-32s-14.3-32-32-32H48.4c-1.6 0-3.2 .1-4.8 .3s-3.1 .5-4.6 1z"/>
+                    </svg>
+                </p>
+               
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <br><br>
+    <div id="localStorageSection"></div>
+    <textarea id="notesTextarea" rows="5" cols="50" style="display: none;"></textarea>
+    <button id="saveNotesBtn" style="display: none;">Enregistrer les notes</button>
+
+    <!-- <button id="openModalBtn"><img class="imgModal" src="kalifast.png" alt=""></button> -->
+
+    <div id="myModal" class="modal">
+        <span class="close-btn closeModalNote" onclick="closeModalNote()">&times;</span>
+        <div class="textarea-container">
+            <div class="title">Contact us</div>
+            <div>
+                <input type="text" placeholder="Name" style="border-radius: 8rem !important; outline: none;">
+                <input type="email" placeholder="Mail" style="border-radius: 8rem !important; outline: none;">
+                <input type="tel" placeholder="Phone" style="border-radius: 8rem !important; outline: none;">
+            </div>
+            <br>
+            <textarea id="noteTextarea" placeholder="Write your message here..." style="outline: none;"></textarea>
+            <button id="saveNoteBtn" class="statusPils">Send</button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+         
+        <br>
+            <p id="popupContentText">
+            </p>
+        </div>
+    </div>
+    <div id="searchMessage"></div>
+  <script src="index.js"></script>
+  <script>
+    
+function saveNote() {
+    const noteContent = document.getElementById('noteTextarea').value;
+    localStorage.setItem('noteContent', noteContent);
+    alert('Note saved successfully.');
+    // Récupération du bouton "Save" dans la modale par son identifiant
+const saveNoteBtn = document.getElementById('saveNoteBtn');
+
+saveNoteBtn.addEventListener('click', saveNote);
+
+}
+
+
+// Fonction pour ajouter le contenu de la note à la bonne ligne dans la colonne Status du tableau
+function addNoteToTableRow() {
+    const savedData = localStorage.getItem('notes');
+    if (savedData) {
+        const vmidRegex = /vmid:(\d+)/; // Expression régulière pour rechercher le vmid dans la note
+        const match = savedData.match(vmidRegex);
+        if (match && match[1]) {
+            const vmid = match[1];
+            const table = document.getElementById('vmTable');
+            let rowFound = false;
+
+            // Parcourir chaque ligne pour rechercher le vmid correspondant
+            const rows = table.getElementsByTagName('tr');
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                if (cells && cells.length > 0 && cells[3].innerText === vmid) { // Vérifie si le vmid correspond
+                    cells[4].innerText = savedData; // Met à jour la colonne Status avec le contenu de la note
+                    rowFound = true;
+                    break;
+                }
+            }
+
+            // Si le vmid n'a pas été trouvé dans le tableau, ajoute une nouvelle ligne pour ce vmid
+            if (!rowFound) {
+                const newRow = table.insertRow();
+                newRow.insertCell(0).innerHTML = ''; // Colonne vide pour le moment
+                newRow.insertCell(1).innerHTML = ''; // Colonne vide pour le moment
+                newRow.insertCell(2).innerHTML = ''; // Colonne vide pour le moment
+                newRow.insertCell(3).innerHTML = vmid; // Affiche le vmid dans la colonne VM ID
+                newRow.insertCell(4).innerHTML = savedData; // Affiche le contenu de la note dans la colonne Status
+            }
+        }
+    }
+}
+
+// Appel de la fonction pour ajouter le contenu de la note à la bonne ligne dans la colonne Status du tableau
+document.addEventListener('DOMContentLoaded', function () {
+    addNoteToTableRow();
+});
+function maintenance() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let node = urlParams.get('node_hyp') || 'eh017';
+
+    console.log('toto');
+    popup.style.display = 'block';
+
+    const apiUrlforAllVM = `http://int-proxmoxmonitor.eisge.com/ws/hyperviseur/getAllcurrentVmsInfos?node=${node}`;
+    popupContentText.innerHTML = '<div class="loader" id="loader"></div>';
+
+    fetch(apiUrlforAllVM)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success && Array.isArray(data.data)) {
+                let selectHTML = `<h1>Put machine under maintenance</h1><br><label>Select the vmid of your Machine: <select name='' id='maintenance_${node}'>`;
+
+                data.data.forEach(vm => {
+                    selectHTML += `<option value='${vm.vmid}'>${vm.vmid}</option>`;
+                });
+
+                selectHTML += `</select></label>`;
+                popupContentText.innerHTML = selectHTML;
+            } else {
+                popupContentText.innerHTML = `<h3>Could not fetch data or no data available. Please try again later.</h3>`;
+            }
+        })
+        .catch(error => {
+            popupContentText.innerHTML = `<h3>Error: ${error.message}</h3>`;
+        });
+}
+
+  </script>
+</body>
+
+</html>

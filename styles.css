@@ -1,0 +1,736 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai&display=swap');
+
+html {
+    font-family: "Almarai", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+p {
+  color: black;
+}
+
+ .kalifastIcon {
+  width: 35px;
+  padding: 6px;
+}
+
+
+.systemstatustext {
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+}
+.validatesvg{
+    color: #001b38;
+}
+.kalifastIcon {
+  display: inline-block;
+}
+ .kalifastIcon {
+  float: left;
+}
+.openKft{
+  position: fixed;
+  /* left: 24px; */
+  right: 35px;
+  background: #000;
+  /* bottom: -12px; */
+  z-index: 100;
+}
+.systemstatustext {
+    white-space: nowrap;
+    
+}
+.vmidText {
+  display: inline-block;
+}
+.statusPils{
+  background-color: #5cdd8b;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.MenuPils{
+  background-color: #02a7f0;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.statusPilsBanner{
+  background-color: #5cdd8b;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.red{
+  background-color: #dc3545;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.redstatusPils{
+  background-color: #dc3545;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.noKFT{
+  background-color: #a5a1a1;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.darkVM {
+  background-color: #000000;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.yellowVM {
+  background-color: #cec743;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.blueVM{
+  background-color: #205cdf;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.errorRedstatusPilsBanner{
+  background-color: #dc3545;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.stopRedPils {
+  background-color: #dc3545;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.redstatusPilsBanner{
+  background-color: #dc3545;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.errorLogSize {
+  position: absolute;
+  display: flex;
+  float: left;
+  /* margin-left: -69vh; */
+  margin-top: 33px;
+}
+.errorLogText{
+  position: absolute;
+  margin-left: -185px;
+  margin-top: 17px;
+  display: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 162px;
+  max-height: 100px;
+  
+}
+
+.errorLogSize:hover + .errorLogText {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.errorLogText:hover {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 10px;
+  transition: max-width 0s ease 5s;
+}
+.elementForSystemStatus {
+    display: inline-block;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+.textStatus {
+    margin-top: 10px;
+    
+}  
+  
+.vmText {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  padding: 26px;
+}
+
+.error_log{
+  color: #B44444;
+  font-style: italic;
+  margin-top: -34px;
+  margin-left: 25px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.vertical-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #fbfbfb;
+  padding-top: 60px;
+}
+.vertical-menu-left{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #fbfbfb;
+  margin-bottom: 13px;
+  padding: 10px 20px ;
+}
+
+.vertical-menu a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.vertical-menu a:hover {
+  background-color: #fff;
+
+}
+
+.vertical-menu a.active {
+  background-color: #fff;
+ }
+ .popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* Fond de la popup */
+  padding: 46px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ombre */
+}
+
+/* Pour centrer le contenu */
+.popup-content p {
+  margin: 0;
+}
+
+/* Style de la croix */
+.close-btn {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 34px;
+  color: #dc3545;
+
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #5cdd8b;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.container {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 300px;
+}
+
+#searchInput {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 14px;
+  transition: border-bottom 0.3s;
+  outline: none;
+  width: 89%;
+  margin-top: 37px;
+}
+
+#searchInput::placeholder {
+  color: #aaa;
+}
+
+#searchInput:focus {
+  border-bottom: 2px solid #007bff;
+}
+
+
+.btnSearch {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 13px;
+  transition: background-color 0.3s;
+}
+
+.btnSearch:hover{
+  background-color: #0056b3;
+
+}
+
+#searchMessage {
+  color: #B44444;
+  font-style: italic;
+  text-align: center;
+  margin-top: -34vh;
+}
+
+
+
+.sub-menu:hover .sub-menu-content {
+  display: block;
+}
+
+#footerText{ 
+  display: flex;
+  position: absolute;
+  bottom: 26px;
+  font-size: 13px;
+  font-style: italic;
+  padding: 10px;
+}
+#sortBtn{
+  background-color: #4f46e5;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 1.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border: none;
+  min-width: 96px;
+}
+.KPMT_text{
+  margin-top: 10px;
+}
+.maclasse {
+  margin-left: -23px;
+}
+#applyPatch {
+    background-color: #ffaa56;
+    padding: 10px;
+    border-radius: 58rem !important;
+    padding: 0.35em 0.65em;
+    font-size: .75em;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    width: 60px;
+    /* float: right; */
+    text-align: center;
+   
+}
+.toto {
+  margin-right: -55px;
+}
+
+.runningButNotKFT{
+  background-color: #555555;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.statusPilsBannerforMaintenance{
+  
+  background-color: #FFAD2F;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.redstatusPilsBannerS{
+  
+  background-color: #dc3545;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  margin-bottom: 42px;
+}
+
+.table-cell {
+  padding: 5px;
+  text-align: center;
+}
+
+/* Nouveau menu */
+header {
+    background-color: #f4f4f4;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    border-radius: 10px;
+    width: 100%;
+    /* margin-left: 32px; */
+}
+
+.top-menu a {
+  cursor: pointer;
+  background-color: #555555;
+  padding: 10px;
+  border-radius: 58rem !important;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  margin-bottom: 42px;
+}
+
+.kalifastIcon {
+  width: 100px;
+}
+td {
+  text-align: center;
+}
+#vmTable {
+  width: 100%;
+  /* margin-left: 43px; */
+}
+.none{
+  display: none;
+}
+.styled-table {
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+}
+
+.styled-table thead tr {
+  background-color: #f3f3f3;
+  color: #000000;
+  cursor: pointer;
+
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #000000;
+}
+.hyperviseurPils {
+  text-decoration: none;
+}
+.refresh {
+  z-index: 999;
+  position: absolute;
+  padding: 3px;
+  margin-left: 21px;
+}
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.rotate-animation {
+  transform-origin: center  ;
+  animation: rotate 1s linear infinite;
+}
+.login-container {
+  background-color: #fff;
+  padding: 66px;
+  border-radius: 12px;
+  margin-right: 4px;
+  margin-top: -35px;
+}
+.login-form {
+  padding: 19px;
+}
+.form-control {
+  margin-bottom: 10px;
+  padding: 6px;
+}
+
+.form-control label {
+  display: block;
+}
+
+.form-control input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+#openModalBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.imgModal {
+  width: 47px;
+  margin-left: -8px;
+  margin-top: -7px;
+}
+.textarea-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.textarea-container textarea {
+  width: 93%;
+  height: 200px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  resize: none;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.textarea-container .title {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: #f9f9f9;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #999;
+}
+
+.textarea-container textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.closeModalNote{
+  margin-top: -6px;
+  margin-right: -7px;
+}
